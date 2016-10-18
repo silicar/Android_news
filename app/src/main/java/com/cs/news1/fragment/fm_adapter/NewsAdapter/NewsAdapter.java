@@ -1,7 +1,6 @@
 package com.cs.news1.fragment.fm_adapter.NewsAdapter;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
