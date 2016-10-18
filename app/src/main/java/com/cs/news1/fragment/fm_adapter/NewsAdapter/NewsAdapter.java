@@ -1,7 +1,6 @@
-package com.cs.news1.fragment.fm_adapter;
+package com.cs.news1.fragment.fm_adapter.NewsAdapter;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +60,7 @@ public class NewsAdapter extends BaseAdapter {
             mViewHolder = new ViewHolder();
             view = mLayoutInflater.inflate(R.layout.item_news, viewGroup, false);
             mViewHolder.tvNewsTitle = (TextView) view.findViewById(R.id.tv_news_title);
+            mViewHolder.tvNewsTitle.setText(mList.get(i));
             view.setTag(mViewHolder);
         } else {
             mViewHolder = (ViewHolder) view.getTag();

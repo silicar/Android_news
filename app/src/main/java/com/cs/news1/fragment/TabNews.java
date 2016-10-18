@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.fragment.fm_adapter.NewsAdapter;
+import com.cs.news1.fragment.fm_adapter.NewsAdapter.NewsAdapter;
 import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
@@ -73,7 +73,7 @@ public class TabNews extends BaseFragment {
 
 
         mSrfLayout= (SwipeRefreshLayout) rootview.findViewById(R.id.swpLayout);
-        mSrfLayout.setColorSchemeResources(R.color.red,R.color.blue,R.color.orgine,R.color.green);
+        mSrfLayout.setColorSchemeResources(R.color.red, R.color.blue, R.color.orgine, R.color.green);
         mSrfLayout.setProgressViewOffset(true,20,100);
         mSrfLayout.setSize(SwipeRefreshLayout.DEFAULT);
         mSrfLayout.setProgressBackgroundColorSchemeResource(R.color.red);
@@ -86,9 +86,11 @@ public class TabNews extends BaseFragment {
                         @Override
                         public void run() {
                             //显示或隐藏刷新进度条
-                            mSrfLayout.setRefreshing(false);
+
                             mNewsTitle.add("新项目");
                             mNewsAdapter.notifyDataSetChanged();
+                           // mListView.setSelection(0);
+                            mSrfLayout.setRefreshing(false);
                             Toast.makeText(getActivity(), "已刷新", Toast.LENGTH_SHORT).show();
                         }
                     }, 2000);
@@ -115,7 +117,7 @@ public class TabNews extends BaseFragment {
     class TestLoopAdapter extends LoopPagerAdapter {
         private int[] imgs = {
 
-                R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d,R.mipmap.d,R.mipmap.e
+                R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.d, R.mipmap.e
         };
 
         public TestLoopAdapter(RollPagerView viewPager) {
