@@ -14,6 +14,8 @@ import com.cs.news1.fragment.fm_adapter.PhotoAdater.PhotoAdapter;
 
 import java.util.ArrayList;
 
+import views.CustomGridLayoutManager;
+
 /**
  * Created by chenshuai on 2016/10/12.
  */
@@ -31,7 +33,9 @@ public class TabPhoto extends BaseFragment {
       /*  imageView= (ImageView) view.findViewById(R.id.iv_photo);
         imageView.setImageResource(R.mipmap.a);*/
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_photo);
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        CustomGridLayoutManager customGridLayoutManager=new CustomGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+       // customGridLayoutManager.setScrollEnabled(false);设置点击事件，是否滑动
+        mRecyclerView.setLayoutManager(customGridLayoutManager);
         mlist.add("http://ww3.sinaimg.cn/large/610dc034jw1f8uxlbptw7j20ku0q1did.jpg");
         mlist.add("http://ww1.sinaimg.cn/large/610dc034jw1f8rgvvm5htj20u00u0q8s.jpg");
         mlist.add("http://ww3.sinaimg.cn/large/610dc034jw1f8qd9a4fx7j20u011hq78.jpg");
@@ -52,6 +56,11 @@ public class TabPhoto extends BaseFragment {
 
         mPhotoAdapter = new PhotoAdapter(mlist, getActivity());
         mRecyclerView.setAdapter(mPhotoAdapter);
+//mRecyclerView.setLayoutFrozen(true);//禁止滑动呢
+//mRecyclerView.setNestedScrollingEnabled(false);
         return view;
+
+        }
     }
-}
+
+
