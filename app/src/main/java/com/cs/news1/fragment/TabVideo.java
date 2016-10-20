@@ -14,6 +14,8 @@ import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
 import com.cs.news1.bean.Bean;
 import com.cs.news1.fragment.fm_adapter.VideoAdater.VideoAdapter;
+import com.cs.news1.net.AppRetrofit;
+import com.cs.news1.net.UrlInterface;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -22,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by chenshuai on 2016/10/12.
@@ -40,25 +45,48 @@ public class TabVideo extends BaseFragment{
         mVideoAdapter=new VideoAdapter(getContext(),mData);
         mRecyclerView.setAdapter(mVideoAdapter);
         final String url = "http://gank.io/api/data/福利/100/1";
-        OkHttpUtils
-                .get()
-                .url(url)
-                .build()
-                .execute(new StringCallback() {
+        AppRetrofit.getRetrofitGank()
+                .create(UrlInterface.Gank.class)
+                .getDatePhoto()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<Bean>() {
                     @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(getActivity(), "请求失败", Toast.LENGTH_SHORT).show();
+                    public void onCompleted() {
+
                     }
 
                     @Override
-                    public void onResponse(String response, int id) {
-                        Log.d("TAT", response);
-                        Gson gson = new Gson();
-                        Bean bean = gson.fromJson(response, Bean.class);
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(Bean bean) {
+
                         mData.addAll(bean.getResults());
                         mVideoAdapter.notifyDataSetChanged();
                     }
                 });
+//        OkHttpUtils
+//                .get()
+//                .url(url)
+//                .build()
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                        Toast.makeText(getActivity(), "请求失败", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response, int id) {
+//                        Log.d("TAT", response);
+//                        Gson gson = new Gson();
+//                        Bean bean = gson.fromJson(response, Bean.class);
+//                        mData.addAll(bean.getResults());
+//                        mVideoAdapter.notifyDataSetChanged();
+//                    }
+//                });
         return view;
     }
 }
