@@ -25,6 +25,7 @@ public class JokeAdpter extends RecyclerView.Adapter {
     private List<String> banner_url;//轮播图片的位置，网路路径
 
 
+
     public JokeAdpter(Context mContext, List<String> banner_url) {
         this.mContext = mContext;
         this.banner_url=banner_url;
@@ -46,11 +47,11 @@ public class JokeAdpter extends RecyclerView.Adapter {
 
     @Override//绑定数据
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        String[] images= mContext.getResources().getStringArray(R.array.url);
         if (holder instanceof BannerViewHolder) {
             BannerViewHolder bannerViewHolder= (BannerViewHolder) holder;
             bannerViewHolder.mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-            bannerViewHolder.mBanner.setImages(banner_url);
-            bannerViewHolder.mBanner.setDelayTime(2000);
+            bannerViewHolder.mBanner.setImages(images);
 
         }else if (holder instanceof ItemViewHolder) {
           //item里面的视图
@@ -80,8 +81,8 @@ public class JokeAdpter extends RecyclerView.Adapter {
 
     //正常的item
     class ItemViewHolder extends RecyclerView.ViewHolder {
-        private SimpleDraweeView mSimpleDraweeView;
-        private TextView mTextView;
+        public SimpleDraweeView mSimpleDraweeView;
+        public TextView mTextView;
 
         public ItemViewHolder(View itemView) {
             super(itemView);

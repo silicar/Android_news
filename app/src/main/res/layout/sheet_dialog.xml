@@ -13,7 +13,6 @@
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:gravity="center_vertical"
-
         android:orientation="horizontal">
 
         <android.support.v7.widget.AppCompatImageView
@@ -21,8 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-           app:srcCompat="@drawable/ic_share_24dp"
-            />
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,7 +28,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center_vertical"
-            android:text="安卓开发联盟"
+            android:text="吴小龙同學"
             android:textColor="?android:attr/textColorPrimary" />
 
     </LinearLayout>
@@ -49,8 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:srcCompat="@drawable/ic_link_24dp"
-
              />
 
         <TextView
@@ -78,7 +74,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:srcCompat="@drawable/ic_content_copy_24dp"
              />
 
         <TextView
@@ -87,9 +82,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center_vertical"
-            android:text="公众号：安卓开发联盟"
-            android:textColor="?android:attr/textColorPrimary"
-            android:id="@+id/textView" />
+            android:text="公众号：吴小龙同学"
+            android:textColor="?android:attr/textColorPrimary" />
 
     </LinearLayout>
 </LinearLayout>

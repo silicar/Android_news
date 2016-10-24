@@ -4,26 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.bean.Bean;
+import com.cs.news1.entry.Bean;
 import com.cs.news1.fragment.fm_adapter.VideoAdater.VideoAdapter;
 import com.cs.news1.net.AppRetrofit;
 import com.cs.news1.net.UrlInterface;
-import com.google.gson.Gson;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -64,10 +58,9 @@ public class TabVideo extends BaseFragment{
                     @Override
                     public void onNext(Bean bean) {
 
-                        mData.addAll(bean.getResults());
-                        mVideoAdapter.notifyDataSetChanged();
                     }
                 });
+
 //        OkHttpUtils
 //                .get()
 //                .url(url)

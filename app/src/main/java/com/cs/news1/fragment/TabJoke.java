@@ -23,6 +23,7 @@ public class TabJoke extends BaseFragment {
     private View mRootview;
     private RecyclerView mRecyclerView;
     private List<String > banner_url;
+    private JokeAdpter adpter;
 
     @Nullable
     @Override
@@ -37,7 +38,7 @@ public class TabJoke extends BaseFragment {
 
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        JokeAdpter adpter=new JokeAdpter(getActivity(),banner_url);
+    adpter=new JokeAdpter(getActivity(),banner_url);
         mRecyclerView.setAdapter(adpter);
 
 

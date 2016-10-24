@@ -1,6 +1,6 @@
 package com.cs.news1.net;
 
-import com.cs.news1.bean.Bean;
+import com.cs.news1.entry.Bean;
 
 import retrofit2.http.GET;
 import rx.Observable;
