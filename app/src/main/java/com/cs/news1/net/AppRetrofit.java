@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class AppRetrofit {
-    private static String BASE_URL = "http://www.google.com";
+    private static String BASE_URL = "http://www.tngou.net/";
     private static String GANK_URL = "http://gank.io/api/";
 
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cs.news1.R;
-import com.cs.news1.entry.Food;
+import com.cs.news1.model.Food;
 import com.cs.news1.utils.PicassoUtils;
 
 import java.util.ArrayList;

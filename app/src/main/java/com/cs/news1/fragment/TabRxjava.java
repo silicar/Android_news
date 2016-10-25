@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.entry.Food;
+import com.cs.news1.model.Food;
 import com.cs.news1.fragment.fm_adapter.FoodAdapter.ApiFood;
 import com.cs.news1.fragment.fm_adapter.FoodAdapter.FoodAdapter;
 

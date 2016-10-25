@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.entry.Bean;
+import com.cs.news1.model.Bean;
 import com.cs.news1.fragment.fm_adapter.VideoAdater.VideoAdapter;
 import com.cs.news1.net.AppRetrofit;
 import com.cs.news1.net.UrlInterface;
@@ -41,7 +41,7 @@ public class TabVideo extends BaseFragment{
         final String url = "http://gank.io/api/data/福利/100/1";
         AppRetrofit.getRetrofitGank()
                 .create(UrlInterface.Gank.class)
-                .getDatePhoto()
+                .getDataPhoto()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Bean>() {
