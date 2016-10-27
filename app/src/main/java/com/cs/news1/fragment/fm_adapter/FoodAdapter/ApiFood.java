@@ -1,7 +1,7 @@
 package com.cs.news1.fragment.fm_adapter.FoodAdapter;
 
 
-import com.cs.news1.model.Food;
+import com.cs.news1.entry.Food;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

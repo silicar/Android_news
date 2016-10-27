@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.model.Bean;
+import com.cs.news1.entry.Bean;
 import com.cs.news1.fragment.fm_adapter.VideoAdater.VideoAdapter;
 import com.cs.news1.net.AppRetrofit;
 import com.cs.news1.net.UrlInterface;
@@ -57,6 +57,7 @@ public class TabVideo extends BaseFragment{
 
                     @Override
                     public void onNext(Bean bean) {
+                        mData.addAll(bean.getResults());
 
                     }
                 });

@@ -1,4 +1,4 @@
-package com.cs.news1.model;
+package com.cs.news1.entry;
 
 import java.util.List;
 

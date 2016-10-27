@@ -1,9 +1,8 @@
 package com.cs.news1.net;
 
-import com.cs.news1.model.Bean;
-import com.cs.news1.model.News;
+import com.cs.news1.entry.Bean;
+import com.cs.news1.entry.News;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;

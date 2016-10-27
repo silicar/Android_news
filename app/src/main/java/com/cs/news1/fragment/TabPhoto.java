@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.model.Bean;
+import com.cs.news1.entry.Bean;
 import com.cs.news1.fragment.fm_adapter.PhotoAdater.PhotoAdapter;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
