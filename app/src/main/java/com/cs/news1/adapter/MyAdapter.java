@@ -1,4 +1,4 @@
-package com.cs.news1.adpter;
+package com.cs.news1.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,12 +14,10 @@ import java.util.List;
 
 public class MyAdapter extends FragmentPagerAdapter {
     private List<BaseFragment> mList_fm;
-    private List<String> mList_title;
 
-    public MyAdapter(FragmentManager fm, List<BaseFragment> mList_fm,List<String> mList_title) {
+    public MyAdapter(FragmentManager fm, List<BaseFragment> mList_fm) {
         super(fm);
         this.mList_fm=mList_fm;
-        this.mList_title=mList_title;
     }
 
     @Override
@@ -34,6 +32,6 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mList_title.get(position);
+        return mList_fm.get(position).getTitle();
     }
 }
