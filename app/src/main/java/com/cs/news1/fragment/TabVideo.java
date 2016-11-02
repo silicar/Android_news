@@ -41,7 +41,7 @@ public class TabVideo extends BaseFragment{
         final String url = "http://gank.io/api/data/福利/100/1";
         AppRetrofit.getRetrofitGank()
                 .create(UrlInterface.Gank.class)
-                .getDataPhoto()
+                .getDataPhoto("10", "20")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Bean>() {

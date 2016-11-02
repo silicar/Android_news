@@ -23,19 +23,9 @@ public class AppRetrofit {
             .writeTimeout(1, TimeUnit.MINUTES)      //写入超时
             .build();
 
-    private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .build();
+    private static Retrofit retrofit = getRetrofit(BASE_URL);
 
-    private static Retrofit retrofitGank = new Retrofit.Builder()
-            .baseUrl(GANK_URL)
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .build();
+    private static Retrofit retrofitGank = getRetrofit(GANK_URL);
 
     public static Retrofit getRetrofit(){
         return retrofit;
