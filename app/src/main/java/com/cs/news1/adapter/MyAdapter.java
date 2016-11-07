@@ -14,10 +14,12 @@ import java.util.List;
 
 public class MyAdapter extends FragmentPagerAdapter {
     private List<BaseFragment> mList_fm;
+    private List<String> mList_title;
 
-    public MyAdapter(FragmentManager fm, List<BaseFragment> mList_fm) {
+    public MyAdapter(FragmentManager fm, List<BaseFragment> mList_fm, List<String> mList_title) {
         super(fm);
         this.mList_fm=mList_fm;
+        this.mList_title=mList_title;
     }
 
     @Override
@@ -32,6 +34,6 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mList_fm.get(position).getTitle();
+        return mList_title.get(position);
     }
 }

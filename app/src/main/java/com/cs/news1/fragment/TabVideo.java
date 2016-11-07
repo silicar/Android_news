@@ -42,8 +42,8 @@ public class TabVideo extends BaseFragment{
         AppRetrofit.getRetrofitGank()
                 .create(UrlInterface.Gank.class)
                 .getDataPhoto("10", "20")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())//在io线程执行
+                .observeOn(AndroidSchedulers.mainThread())//结果在主线程
                 .subscribe(new Subscriber<Bean>() {
                     @Override
                     public void onCompleted() {

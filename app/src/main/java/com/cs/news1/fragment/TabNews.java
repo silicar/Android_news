@@ -116,7 +116,6 @@ public class TabNews extends BaseFragment {
     }
     class TestLoopAdapter extends LoopPagerAdapter {
         private int[] imgs = {
-
                 R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.d, R.mipmap.e
         };
 
