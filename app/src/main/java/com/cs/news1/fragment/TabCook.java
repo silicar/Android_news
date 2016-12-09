@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,22 +14,23 @@ import android.view.ViewGroup;
 import com.cs.news1.R;
 import com.cs.news1.base.BaseFragment;
 import com.cs.news1.entry.News;
+import com.cs.news1.fragment.fm_adapter.CookAdapter.ApiCook;
 import com.cs.news1.fragment.fm_adapter.CookAdapter.CookAdater;
-import com.cs.news1.net.AppRetrofit;
-import com.cs.news1.net.UrlInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by chenshuai on 2016/10/12.
  */
 
-public class TabCook extends BaseFragment {
+public class TabCook extends BaseFragment{
     private static final String TAG="TAG";
     private RecyclerView mRecyclerView;
     private List<News.TngouBean> mData=new ArrayList<>();
@@ -39,27 +41,28 @@ public class TabCook extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fm_cook,container,false);
         mRecyclerView= (RecyclerView) view.findViewById(R.id.rl_life);
-        AppRetrofit.getRetrofit().create(UrlInterface.Tngou.class)
-                .getDate(1, 20, 1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<News>() {
-                    @Override
-                    public void onCompleted() {
 
-                    }
+        //创建retrofit的实例,传递参数
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://www.tngou.net")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        //retrofit与api接口关联,创建
+        ApiCook apiCook = retrofit.create(ApiCook.class);
+        //请求具体数据
+        Call<News> call = apiCook.getDate(1, 20, 1);
+        //异步任务提交数据
+        call.enqueue(new Callback<News>() {
 
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(News bean) {
-                        mData.addAll(bean.getTngou());
-
-                    }
-                });
+            @Override
+            public void onResponse(Call<News> call, Response<News> response) {
+                mData.addAll(response.body().getTngou());
+            }
+            @Override
+            public void onFailure(Call<News> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t.getMessage());
+            }
+        });
 
         madapter=new CookAdater(getContext(),mData);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

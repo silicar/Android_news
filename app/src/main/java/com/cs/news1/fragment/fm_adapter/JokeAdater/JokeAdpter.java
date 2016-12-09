@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cs.news1.R;
 import com.cs.news1.entry.Recreation;
 import com.cs.news1.utils.PicassoUtils;
-import com.youth.banner.Banner;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class JokeAdpter extends RecyclerView.Adapter<JokeAdpter.JokeViewHolder> 
 
     public interface OnItemClickLitener {
         void onItemClick(View view, int position);
-        void onItemLongClick(View view, int position);
+        void onItemLongClick(View view , int position);
     }
     public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
         this.mOnItemClickLitener = mOnItemClickLitener;
@@ -160,15 +160,6 @@ public class JokeAdpter extends RecyclerView.Adapter<JokeAdpter.JokeViewHolder> 
                             mOnItemClickLitener.onItemClick(((JokeViewHolder) holder).itemView,position1);
                         }
                     });
-                    ((JokeViewHolder) holder).itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View view) {
-                            int position1 = holder.getLayoutPosition();
-                            mOnItemClickLitener.onItemLongClick(((JokeViewHolder) holder).itemView,position1);
-
-                            return false;
-                        }
-                    });
                 }
                 return;
             }
@@ -217,14 +208,14 @@ public class JokeAdpter extends RecyclerView.Adapter<JokeAdpter.JokeViewHolder> 
      *
      */
     class JokeViewHolder extends RecyclerView.ViewHolder {
-        public Banner banner;
+        public RelativeLayout banner;
         public ImageView image;
         public TextView title;
         public TextView content;
         public JokeViewHolder(View itemView) {
             super(itemView);
             if (itemView == mHeaderView){
-                banner= (Banner) itemView.findViewById(R.id.item_joke_banner);
+                banner= (RelativeLayout) itemView.findViewById(R.id.item_joke_root);
                 return;
             }
             if (itemView == mFooterView){

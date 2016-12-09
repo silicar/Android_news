@@ -29,7 +29,7 @@ import rx.schedulers.Schedulers;
  * Created by chenshuai on 2016/10/12.
  */
 
-public class TabRxjava extends BaseFragment {
+public class TabRxjava extends BaseFragment{
     private static final String TAG="TAG";
     private RecyclerView mRecyclerView;
     private List<Food.TngouBean> mData=new ArrayList<>();

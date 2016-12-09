@@ -124,6 +124,6 @@ public class CookAdater extends RecyclerView.Adapter<CookAdater.MyViewHolder> im
         }
     }
     public interface OnChildClickListenner{
-        void onChildClick(RecyclerView parent, View view, int position, List<News.TngouBean> list);
+        void onChildClick(RecyclerView parent,View view,int position, List<News.TngouBean> list );
     }
 }

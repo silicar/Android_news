@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
  */
 
 public class BaseFragment extends Fragment {
-    private String mTitle;
     private Activity activity;
     public Context getContext(){
         return activity;
@@ -19,14 +18,5 @@ public class BaseFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         activity=getActivity();
-    }
-
-    public String getTitle() {
-        return mTitle;
-    }
-
-    public BaseFragment setTitle(String title) {
-        this.mTitle = title;
-        return this;
     }
 }
