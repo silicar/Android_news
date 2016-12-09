@@ -1,170 +1,224 @@
 package com.cs.news1.entry;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
- * Created by chenshuai on 2016/10/24.
+ * Created by chenshuai on 2016/11/28.
  */
 
 public class News {
 
     /**
-     * status : true
-     * total : 13662
-     * tngou : [{"count":0,"description":"面对记者问到只走访一天就发现如此多未悬挂牌照的执法车辆、交警为何未作出处理时,张超说这需要联系交警支队相关负责人,并表示希望记者留下未悬挂车牌的警车照片内部查处,其余行政执法车辆处理结果和原因将及时向记者反馈","fcount":0,"fromname":"海南网","fromurl":"http://www.hinews.cn/news/system/2016/10/24/030782677.shtml","id":13899,"img":"/top/161024/609dfad471341e6709bba19d02a7cd57.jpg","keywords":"多地无牌执法车满街跑","rcount":0,"time":1477277354000,"title":"河南多地无牌执法车满街跑 学者:行政程序行不通","topclass":0},{"count":0,"description":"最新：警方通报：2016年10月23日18时40分许，江南公交第二公司97路公交车苏AL6837自编号JN2-9042，驾驶员孙伟，年龄35岁，驾龄17年）该车由仙林灵山北路总站开往南京站方向，车辆行至仙境路路段，车辆前屏与出租车发生碰撞，造成出租车驾驶员及一女乘客死亡,伤者一男子当即送往鼓楼医院治疗","fcount":0,"fromname":"闽南网","fromurl":"http://www.mnw.cn/news/shehui/1418670.html","id":13898,"img":"/top/161024/5a73d712f51a28006a23e8cdb5148744.jpg","keywords":"公交车碾压出租车","rcount":0,"time":1477277349000,"title":"南京公交车碾压出租车视频 网友称公交车大货车出租车..","topclass":0},{"count":5,"description":"舞台布置华丽，周杰伦多次换装，十分炫酷，不仅如此，他还与辣妹亲密热舞，忍不住想问一句，昆凌知道嘛，周董你这样真的不会回家跪搓衣板嘛","fcount":0,"fromname":"闽南网","fromurl":"http://www.mnw.cn/news/ent/bg/1418582.html","id":13897,"img":"/top/161024/aea7047c9b0e0fcbe447d2014b5f7549.jpg","keywords":"周杰伦熊抱辣妹热舞","rcount":0,"time":1477273752000,"title":"周杰伦熊抱辣妹热舞 地表最强演唱会合肥站回顾","topclass":0},{"count":6,"description":"今年10月，公安雁塔分局民警在对历某被杀案的痕迹物证比对时，发现暂住在四川成都的祝某有重大嫌疑，于是民警立即赶往成都，10月21日中午12时，民警在祝某的工作地点将其抓获并押解回西安","fcount":0,"fromname":"闽南网","fromurl":"http://www.mnw.cn/news/shehui/1418589.html","id":13896,"img":"/top/161024/d0f105ad746c8ae52c75ecd33c430610.jpg","keywords":"嫌嫖资高杀卖淫女","rcount":0,"time":1477273750000,"title":"嫌嫖资高杀卖淫女大学生逃8年 警方没轻易放弃追捕","topclass":0},{"count":6,"description":"最后，再摆上家具和各种自己喜欢的小东西，一个小仙居就完成了，亲手DIY取材于自然，这就是成本6万的秘诀","fcount":0,"fromname":"中华网","fromurl":"http://news.china.com/socialgd/10000169/20161024/23805152_all.html","id":13895,"img":"/top/161024/3ddc62a2215fcdf4bd97ba30026a60fe.jpg","keywords":"90后姑娘隐居深山","rcount":0,"time":1477273748000,"title":"90后姑娘隐居深山 花6万亲手建300平米的别墅(组图)","topclass":0},{"count":7,"description":"黑龙江依兰交警设岗\u201c收钱\u201d放行超载车哈尔滨依兰县渡口日过百余超载车，司机交钱给驻守警车后放行；当地交警部门回应，渡口设卡为\u201c治超\u201d10月15日下午，黑龙江依兰县松花江渡口南岸","fcount":0,"fromname":"闽南网","fromurl":"http://www.mnw.cn/news/china/1418337.html","id":13894,"img":"/top/161024/fc909f4b6533beae1697b6db6fb78242.jpg","keywords":"交警收钱放行超载车","rcount":0,"time":1477273747000,"title":"交警收钱放行超载车 黑龙江依兰松花江渡口乱象","topclass":0},{"count":12,"description":"网络配图\u201c特产\u201d并没有具体规范记者随后联系上海市闵行区市场监督局，一名工作人员称，上海风都食品有限公司是闵行区内的一家食品生产企业，\u201c我们每年会对该公司的产品进行抽检\u201d，不过目前尚未听说网友反映的问题","fcount":0,"fromname":"中国青年网","fromurl":"http://minsheng.youth.cn/mszxgch/201610/t20161023_8773832.htm","id":13893,"img":"/top/161023/7fa9545a90cd9ae1b8a7d3d26b5ba9b3.jpg?size=505x298","keywords":"上海特产狗屎糕","rcount":0,"time":1477226947000,"title":"上海特产\"狗屎糕\" 狗屎糕打着上海特产的名义在上海旅..","topclass":0},{"count":11,"description":"轨交警方图原标题：一男子携道具\u201c炸弹\u201d欲进沪轨交10号线被工作人员拦下【新民网·最新报道】今天（23日）13时，一张地铁安检人员手持一枚形似\u201c炸弹\u201d物的照片在网上引发市民关注","fcount":0,"fromname":"中华网","fromurl":"http://news.china.com/socialgd/10000169/20161023/23803981.html","id":13892,"img":"/top/161023/6525115dec5eb354142df30272d7f318.jpg","keywords":"男子携炸弹欲进地铁","rcount":0,"time":1477223347000,"title":"厉害了!上海一男子携道具\"炸弹\"欲进地铁(图)","topclass":1},{"count":12,"description":"网络配图针对此事，武侯区委宣传部官方微博@武侯发布10月22日下午通报称，22日，针对金蕾笛幼儿园孩子在危房中上学的情况，武侯区教育局已着手制定幼儿分流入园方案，力争让200多名幼儿一周内到分流安置的幼儿园入学","fcount":0,"fromname":"中国青年网","fromurl":"http://minsheng.youth.cn/mszxgch/201610/t20161023_8773867.htm","id":13891,"img":"/top/default.jpg","keywords":"两百幼儿废墟中上学","rcount":0,"time":1477219750000,"title":"两百幼儿废墟中上学 当地教育局已着手尽快让幼儿正常上学","topclass":5},{"count":12,"description":"博物馆收藏了数十年来研究者调查所得日军慰安所遗址中的各类遗物，研究者捐献的相关文物，如战时日军使用的安全套、星秘膏；受害幸存者赴日起诉时使用的护照；受害幸存者到海外出席听证会的证件与作为中国大陆最早一批向日本提出赔偿的起诉书等","fcount":0,"fromname":"中国青年网","fromurl":"http://minsheng.youth.cn/mszxgch/201610/t20161023_8773865.htm","id":13890,"img":"/top/default.jpg","keywords":"慰安妇博物馆开馆","rcount":0,"time":1477219749000,"title":"慰安妇博物馆开馆 当年有40万各国妇女成了慰安妇一半..","topclass":6},{"count":14,"description":"记者敲开门后，里面的几名饭店工作人员却称，那两人是上一批厨师，现在已经不在这里做了，目前电话号码已无法接通，处于失联状态","fcount":0,"fromname":"中华网","fromurl":"http://news.china.com/finance/11155042/20161023/23804068.html","id":13889,"img":"/top/161023/73bce95dc9f5b1e2c641cb27767ad6bd.jpg","keywords":"散步晕倒遭轿车碾压","rcount":0,"time":1477216148000,"title":"女子散步晕倒遭轿车碾压 称车上有人说轧死算了(图)","topclass":6},{"count":12,"description":"阻拦洪水可\u201c滴水不漏\u201d\u201c防洪墙最主要的品质就是防渗水，虽然是国产，可我们的产品品质毫不弱于德国的进口货","fcount":0,"fromname":"新华网","fromurl":"http://news.xinhuanet.com/photo/2016-10/23/c_129333978.htm","id":13888,"img":"/top/default.jpg","keywords":"国产抗洪神器亮相","rcount":0,"time":1477216147000,"title":"揭秘国产版\"抗洪神器\":阻拦洪水可\"滴水不漏\"","topclass":6},{"count":10,"description":"知情者：\u201c我们把哈密瓜拿出来以后，看到箱子的重量接近三斤三两，一个箱子为什么这么重，我们把它拆开看一下，有什么秘密","fcount":0,"fromname":"新浪新闻","fromurl":"http://news.sina.com.cn/s/wh/2016-10-23/doc-ifxwztru6923494.shtml","id":13887,"img":"/top/161023/1566eeae7637f14faf82e0315b135434.jpg","keywords":"市场纸箱中加水泥","rcount":0,"time":1477205347000,"title":"水果市场纸箱中加水泥 50元水果箱子占7.6元","topclass":6},{"count":9,"description":"三人中，Selina前一段时间宣布和老公张承中离婚，Hebe则一直保持单身，忙于自己的音乐事业","fcount":0,"fromname":"东方头条","fromurl":"http://mini.eastday.com/a/161023073132203.html","id":13886,"img":"/top/default.jpg","keywords":"ella承认怀孕","rcount":0,"time":1477198147000,"title":"Ella陈嘉桦承认怀孕,盘点今年怀孕女星有哪些!","topclass":2},{"count":9,"description":"成都商报图10月22日消息，10月22日，成都商报客户端记者从江油市委宣传部获悉，绵阳江油中学2014级高三学生唐某20日中午从宿舍楼坠亡后，公安机关及时介入调查，还原了事情经过，于21日晚向家属通报调查情况，目前家属对调查结果表示认同","fcount":0,"fromname":"齐鲁晚报","fromurl":"http://www.qlwb.com.cn/2016/1023/756401.shtml","id":13885,"img":"/top/161023/0fa0eb4bb92927fbe6df90a895c01e9c.jpg?size=450x499","keywords":"玩手机被建议退学","rcount":0,"time":1477198147000,"title":"高三学生玩手机被建议退学 当场下跪求情随后回宿舍从..","topclass":6},{"count":13,"description":"2016年10月19日上午，大同凯德世家小区一业主景某某因小区物业施工不慎致家中物品受损找物业理论讨说法时，双方发生言语冲突并有肢体接触","fcount":0,"fromname":"中华网","fromurl":"http://sd.china.com/pinpai/zimeiti/11175931/20161023/23803387.html","id":13884,"img":"/top/161023/e4f504fd5f7f35d5eed042165ae3e748.jpg","keywords":"装载机怒砸堵路轿车","rcount":0,"time":1477190952000,"title":"中华网山东:装载机当街\"怒砸\"堵路轿车 警方:当事人已刑..","topclass":6},{"count":10,"description":"p;接报后，相山分局刑警大队责任区一队迅速组织力量对案发现场及时勘验，并通过视频监控系统追踪犯罪嫌疑人活动轨迹，成功找到犯罪嫌疑人居住和藏匿赃物的场所，明确了犯罪嫌疑人苏某的身份","fcount":0,"fromname":"中华网","fromurl":"http://sd.china.com/pinpai/zimeiti/11175931/20161023/23803341.html","id":13883,"img":"/top/161023/6ce0e378123b1d24b0e1909269a254df.png","keywords":"为成网红直播盗窃","rcount":0,"time":1477190950000,"title":"中华网山东:男子为成网红直播盗窃被拘 这就是传说中的..","topclass":6},{"count":9,"description":"­演唱会只能听不能看­10月4日演唱会当天，包姌拿着票走进上海体育场，在2层最后一排角落里找到了自己的座位，她立刻傻眼了，根据号码她的座位贴近墙根，左侧视野被完全遮挡，舞台看不到，大屏幕也看不到，连300多元的看台票都不如","fcount":0,"fromname":"闽南网","fromurl":"http://www.mnw.cn/yinyue/yanchanghui/1417995.html","id":13882,"img":"/top/161023/b6de309e23c21bda3143b0eef766d386.jpg","keywords":"演唱会买到墙根票","rcount":0,"time":1477190949000,"title":"歌迷五月天演唱会买到\"墙根票\" 牛魔王票务网:座位随机","topclass":2},{"count":12,"description":"美发店忽悠顾客被罚，某顾客走进打着周年店庆标语的理发店打算随便剪个头发，在理发师的劝说下烫了一个价值\u201c37元\u201d的发型，结账时该顾客却被收取1776元，并被告知37元不是该发型的价钱，而是做头发用的夹子，一个要价37元","fcount":0,"fromname":"中国青年网","fromurl":"http://style.youth.cn/hot/201610/t20161023_8773098.htm","id":13881,"img":"/top/default.jpg","keywords":"美发店忽悠顾客被罚","rcount":0,"time":1477187352000,"title":"美发店忽悠顾客被罚 烫头花1776因用了37元的夹子?","topclass":6},{"count":9,"description":"\u201d该酒店一张姓负责人表示，一般到酒店消费的客人带白酒的多，很少有客人自带啤酒，按照酒店规定啤酒是按件收取\u201c开瓶费\u201d，一件啤酒收50元，可能是服务员没搞清楚，多收了一件啤酒的\u201c服务费\u201d","fcount":0,"fromname":"中华网","fromurl":"http://news.china.com/socialgd/10000169/20161023/23803260.html","id":13880,"img":"/top/default.jpg","keywords":"就餐被收100开瓶费","rcount":0,"time":1477187348000,"title":"男子就餐自带啤酒 1箱酒45元被收100元开瓶费","topclass":6}]
+     * reason : 成功的返回
+     * result : {"stat":"1","data":[{"title":"小伙被发现上吊身亡，头七托梦给奶奶，真相让人愤怒","date":"2016-11-28 16:46","author_name":"本忠人华哥","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128164604563.html?qid=juheshuju","uniquekey":"161128164604563","type":"头条","realtype":"社会"},{"title":"吃韭菜你以为只是壮阳？看后震惊了，一定要告诉全家人！","date":"2016-11-28 14:02","author_name":"社会万花筒自媒体","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpm_03200403.png","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpl_05500201.png","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128140248897.html?qid=juheshuju","uniquekey":"161128140248897","type":"头条","realtype":"健康"},{"title":"男子被运钞员枪杀案最新消息：家属获赔180万","date":"2016-11-28 15:20","author_name":"中国商报","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128152028050.html?qid=juheshuju","uniquekey":"161128152028050","type":"头条","realtype":"社会"},{"title":"美国流浪夫妻毫无遮掩的私生活","date":"2016-11-28 16:37","author_name":"咔嚓","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128163741227.html?qid=juheshuju","uniquekey":"161128163741227","type":"头条","realtype":"国际"},{"title":"姐妹共用三条腿　能够成长为一个完整的大人","date":"2016-11-28 08:14","author_name":"中国网","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpm_03200403.png","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpl_05500201.png","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128081412279.html?qid=juheshuju","uniquekey":"161128081412279","type":"头条","realtype":"社会"},{"title":"少年因外面世界太危险被锁家2年 杀母埋尸鸡圈","date":"2016-11-28 08:57","author_name":"北京时间","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128085739867.html?qid=juheshuju","uniquekey":"161128085739867","type":"头条","realtype":"社会"},{"title":"除了巴基斯坦，非洲还有一个中国的超级铁哥们","date":"2016-11-28 16:41","author_name":"Edwina","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128164150832.html?qid=juheshuju","uniquekey":"161128164150832","type":"头条","realtype":"军事"},{"title":"东方八卦：王力宏和女儿争宠变\u201c单身狗\u201d，新锐导演开车门被夹身亡，日少女偶像湿身诱惑闺蜜","date":"2016-11-28 11:48","author_name":"东方头条","thumbnail_pic_s":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128114815871.html?qid=juheshuju","uniquekey":"161128114815871","type":"头条","realtype":"娱乐"},{"title":"杜特尔特欲再度访华是怎么回事？","date":"2016-11-28 14:41","author_name":"环球论坛","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128144147803.html?qid=juheshuju","uniquekey":"161128144147803","type":"头条","realtype":"军事"},{"title":"台媒揭金马奖影后评选内幕，范冰冰白白浪费机票钱！","date":"2016-11-28 11:50","author_name":"扒圈娱记","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128115011395.html?qid=juheshuju","uniquekey":"161128115011395","type":"头条","realtype":"娱乐"},{"title":"旅馆挂名\"公厕\"卖淫 生意火爆露马脚","date":"2016-11-28 10:47","author_name":" 北京时间","thumbnail_pic_s":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128104747003.html?qid=juheshuju","uniquekey":"161128104747003","type":"头条","realtype":"社会"},{"title":"农村人经常吃这种油，炒菜很香，城里人基本不吃","date":"2016-11-28 16:37","author_name":"味蕾","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128163739166.html?qid=juheshuju","uniquekey":"161128163739166","type":"头条","realtype":"健康"},{"title":"走红毯时范冰冰秒杀周冬雨，憾失影后大气回应来日方长","date":"2016-11-28 08:41","author_name":"娱悦一点","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128084111764.html?qid=juheshuju","uniquekey":"161128084111764","type":"头条","realtype":"娱乐"},{"title":"潮州女子醉酒被带到偏僻路段 遭暴力实施性侵","date":"2016-11-28 15:48","author_name":"潮州日报","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128154853826.html?qid=juheshuju","uniquekey":"161128154853826","type":"头条","realtype":"国内"},{"title":"这种10元纸币，市场价30万元，遇见可别花掉了","date":"2016-11-28 15:01","author_name":"顶尖收藏","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128150101928.html?qid=juheshuju","uniquekey":"161128150101928","type":"头条","realtype":"财经"},{"title":"刘亦菲妈妈素颜证件照曝光 貌美气质出众","date":"2016-11-28 15:11","author_name":"新浪娱乐","thumbnail_pic_s":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128151124526.html?qid=juheshuju","uniquekey":"161128151124526","type":"头条","realtype":"娱乐"},{"title":"林更新怼狗仔遭对方反驳：气性这大 长点心","date":"2016-11-28 17:49","author_name":"网易娱乐","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpm_03200403.png","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpl_05500201.png","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128174942742.html?qid=juheshuju","uniquekey":"161128174942742","type":"头条","realtype":"娱乐"},{"title":"女子隆胸后胸掉到肚子 word天惨变无胸大肚","date":"2016-11-27 18:06","author_name":"川北在线","thumbnail_pic_s":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161127180635395.html?qid=juheshuju","uniquekey":"161127180635395","type":"头条","realtype":"社会"},{"title":"一名工人，为啥能在高官如林的官场中成为广西党委候补委员？","date":"2016-11-28 13:45","author_name":"中新社广州分社\u201c广西头条NEWS\u201d","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128134526680.html?qid=juheshuju","uniquekey":"161128134526680","type":"头条","realtype":"国内"},{"title":"去世人托梦真实案例，被害人助警方追凶","date":"2016-11-28 10:54","author_name":"腾讯星座","thumbnail_pic_s":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128105435876.html?qid=juheshuju","uniquekey":"161128105435876","type":"头条","realtype":"星座"},{"title":"金晨被问换角事件陈赫解围：这是搞事情啊","date":"2016-11-28 17:30","author_name":"新浪娱乐","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128173034914.html?qid=juheshuju","uniquekey":"161128173034914","type":"头条","realtype":"娱乐"},{"title":"陈冲和女儿十指紧扣 母女俩肤色\u201c黑白分明\u201d","date":"2016-11-28 08:49","author_name":"视觉中国","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128084928769.html?qid=juheshuju","uniquekey":"161128084928769","type":"头条","realtype":"娱乐"},{"title":"路边的一种野草，可活血通经，还能治疗风湿痹痛、跌打损伤！","date":"2016-11-28 15:28","author_name":"每日养生课堂","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128152803809.html?qid=juheshuju","uniquekey":"161128152803809","type":"头条","realtype":"健康"},{"title":"胜利录制《花样旅行》，与师弟姜昇润同框啦","date":"2016-11-28 17:10","author_name":"腾讯娱乐","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128171047467.html?qid=juheshuju","uniquekey":"161128171047467","type":"头条","realtype":"娱乐"},{"title":"南非导演模拟特朗普总统新座驾：飞机装炮管 汽车金光闪闪","date":"2016-11-28 16:57","author_name":"环球网","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128165759842.html?qid=juheshuju","uniquekey":"161128165759842","type":"头条","realtype":"国际"},{"title":"公交司机行驶中猝死 车辆撞树零部件散落一地","date":"2016-11-28 15:53","author_name":"京华网","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128155346812.html?qid=juheshuju","uniquekey":"161128155346812","type":"头条","realtype":"社会"},{"title":"香港学生侮辱国歌 校长质问：在外时向谁求救？","date":"2016-11-28 03:32","author_name":"环球时报","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128033209527.html?qid=juheshuju","uniquekey":"161128033209527","type":"头条","realtype":"国内"},{"title":"马伊琍变复古挂历女郎 穿厚毛衣仍显胸","date":"2016-11-28 15:11","author_name":"新浪娱乐","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128151124441.html?qid=juheshuju","uniquekey":"161128151124441","type":"头条","realtype":"娱乐"},{"title":"渣男张无忌 好姑娘请远离","date":"2016-11-28 10:43","author_name":"东方头条","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128104351219.html?qid=juheshuju","uniquekey":"161128104351219","type":"头条","realtype":"娱乐"},{"title":"贝壳上抠出70亿元怎么回事 图文揭秘中国大舜人的百年纽扣故事","date":"2016-11-27 15:30","author_name":"荆州新闻网","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161127153030767.html?qid=juheshuju","uniquekey":"161127153030767","type":"头条","realtype":"社会"},{"title":"为寻真命天女 英国68岁男子准备迎接第9段婚姻","date":"2016-11-28 14:46","author_name":"中青网","thumbnail_pic_s":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128144644961.html?qid=juheshuju","uniquekey":"161128144644961","type":"头条","realtype":"国际"}]}
+     * error_code : 0
      */
 
-    private boolean status;
-    private int total;
-    private List<TngouBean> tngou;
+    private String reason;
+    private ResultBean result;
+    private int error_code;
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public String getReason() {
+        return reason;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
-    public void setTngou(List<TngouBean> tngou) {
-        this.tngou = tngou;
+    public ResultBean getResult() {
+        return result;
     }
 
-    public boolean getStatus() {
-        return status;
+    public void setResult(ResultBean result) {
+        this.result = result;
     }
 
-    public int getTotal() {
-        return total;
+    public int getError_code() {
+        return error_code;
     }
 
-    public List<TngouBean> getTngou() {
-        return tngou;
+    public void setError_code(int error_code) {
+        this.error_code = error_code;
     }
 
-    public static class TngouBean {
+    public static class ResultBean {
         /**
-         * count : 0
-         * description : 面对记者问到只走访一天就发现如此多未悬挂牌照的执法车辆、交警为何未作出处理时,张超说这需要联系交警支队相关负责人,并表示希望记者留下未悬挂车牌的警车照片内部查处,其余行政执法车辆处理结果和原因将及时向记者反馈
-         * fcount : 0
-         * fromname : 海南网
-         * fromurl : http://www.hinews.cn/news/system/2016/10/24/030782677.shtml
-         * id : 13899
-         * img : /top/161024/609dfad471341e6709bba19d02a7cd57.jpg
-         * keywords : 多地无牌执法车满街跑
-         * rcount : 0
-         * time : 1477277354000
-         * title : 河南多地无牌执法车满街跑 学者:行政程序行不通
-         * topclass : 0
+         * stat : 1
+         * data : [{"title":"小伙被发现上吊身亡，头七托梦给奶奶，真相让人愤怒","date":"2016-11-28 16:46","author_name":"本忠人华哥","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128164604563.html?qid=juheshuju","uniquekey":"161128164604563","type":"头条","realtype":"社会"},{"title":"吃韭菜你以为只是壮阳？看后震惊了，一定要告诉全家人！","date":"2016-11-28 14:02","author_name":"社会万花筒自媒体","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpm_03200403.png","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpl_05500201.png","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128140248_10d017ff08ca6243791996f95f6c5214_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128140248897.html?qid=juheshuju","uniquekey":"161128140248897","type":"头条","realtype":"健康"},{"title":"男子被运钞员枪杀案最新消息：家属获赔180万","date":"2016-11-28 15:20","author_name":"中国商报","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128152028_f18e00e46ce1374f768efa2631fd7540_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128152028050.html?qid=juheshuju","uniquekey":"161128152028050","type":"头条","realtype":"社会"},{"title":"美国流浪夫妻毫无遮掩的私生活","date":"2016-11-28 16:37","author_name":"咔嚓","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128163741_e596c4b865251791e9efdd3e1da96d78_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128163741227.html?qid=juheshuju","uniquekey":"161128163741227","type":"头条","realtype":"国际"},{"title":"姐妹共用三条腿　能够成长为一个完整的大人","date":"2016-11-28 08:14","author_name":"中国网","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpm_03200403.png","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpl_05500201.png","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128081412_54d6a86f58effcf136d2b5e38e35a9a8_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128081412279.html?qid=juheshuju","uniquekey":"161128081412279","type":"头条","realtype":"社会"},{"title":"少年因外面世界太危险被锁家2年 杀母埋尸鸡圈","date":"2016-11-28 08:57","author_name":"北京时间","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128085739_69221dafc6423d2acc3652576447b259_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128085739867.html?qid=juheshuju","uniquekey":"161128085739867","type":"头条","realtype":"社会"},{"title":"除了巴基斯坦，非洲还有一个中国的超级铁哥们","date":"2016-11-28 16:41","author_name":"Edwina","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128164150_b08438a7a772146c7c280e0efb5d85f3_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128164150832.html?qid=juheshuju","uniquekey":"161128164150832","type":"头条","realtype":"军事"},{"title":"东方八卦：王力宏和女儿争宠变\u201c单身狗\u201d，新锐导演开车门被夹身亡，日少女偶像湿身诱惑闺蜜","date":"2016-11-28 11:48","author_name":"东方头条","thumbnail_pic_s":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://06.imgmini.eastday.com/mobile/20161128/20161128114815_9465ebe6e04c2b80513ab45abb055dca_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128114815871.html?qid=juheshuju","uniquekey":"161128114815871","type":"头条","realtype":"娱乐"},{"title":"杜特尔特欲再度访华是怎么回事？","date":"2016-11-28 14:41","author_name":"环球论坛","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128144147_a3c7f6b4cf6b8414b96f4bdd550e8ba9_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128144147803.html?qid=juheshuju","uniquekey":"161128144147803","type":"头条","realtype":"军事"},{"title":"台媒揭金马奖影后评选内幕，范冰冰白白浪费机票钱！","date":"2016-11-28 11:50","author_name":"扒圈娱记","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128115011_26013730abbe76bc1b747a125474ae5e_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128115011395.html?qid=juheshuju","uniquekey":"161128115011395","type":"头条","realtype":"娱乐"},{"title":"旅馆挂名\"公厕\"卖淫 生意火爆露马脚","date":"2016-11-28 10:47","author_name":" 北京时间","thumbnail_pic_s":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://07.imgmini.eastday.com/mobile/20161128/20161128104747_a0e1f1ffed0821622c03b514cff27ada_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128104747003.html?qid=juheshuju","uniquekey":"161128104747003","type":"头条","realtype":"社会"},{"title":"农村人经常吃这种油，炒菜很香，城里人基本不吃","date":"2016-11-28 16:37","author_name":"味蕾","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128163739_8477c7fdd16b71e3ca48e9a953219eac_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128163739166.html?qid=juheshuju","uniquekey":"161128163739166","type":"头条","realtype":"健康"},{"title":"走红毯时范冰冰秒杀周冬雨，憾失影后大气回应来日方长","date":"2016-11-28 08:41","author_name":"娱悦一点","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128084111_7619429d27953ead9b40397b33dca9f2_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128084111764.html?qid=juheshuju","uniquekey":"161128084111764","type":"头条","realtype":"娱乐"},{"title":"潮州女子醉酒被带到偏僻路段 遭暴力实施性侵","date":"2016-11-28 15:48","author_name":"潮州日报","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128154853_33c8a6c98fdc3bf044be08f12c679d4f_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128154853826.html?qid=juheshuju","uniquekey":"161128154853826","type":"头条","realtype":"国内"},{"title":"这种10元纸币，市场价30万元，遇见可别花掉了","date":"2016-11-28 15:01","author_name":"顶尖收藏","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128150101_1382bdd15d1f448b9e79119e0f39a52b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128150101928.html?qid=juheshuju","uniquekey":"161128150101928","type":"头条","realtype":"财经"},{"title":"刘亦菲妈妈素颜证件照曝光 貌美气质出众","date":"2016-11-28 15:11","author_name":"新浪娱乐","thumbnail_pic_s":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://07.imgmini.eastday.com/mobile/20161128/20161128151124_5fc4e8b2eb034c0c53bcc301e58e7c33_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128151124526.html?qid=juheshuju","uniquekey":"161128151124526","type":"头条","realtype":"娱乐"},{"title":"林更新怼狗仔遭对方反驳：气性这大 长点心","date":"2016-11-28 17:49","author_name":"网易娱乐","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpm_03200403.png","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpl_05500201.png","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128174942_382780118422c9884269b68f2e6f8f83_1_mwpl_05500201.png","url":"http://mini.eastday.com/mobile/161128174942742.html?qid=juheshuju","uniquekey":"161128174942742","type":"头条","realtype":"娱乐"},{"title":"女子隆胸后胸掉到肚子 word天惨变无胸大肚","date":"2016-11-27 18:06","author_name":"川北在线","thumbnail_pic_s":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://02.imgmini.eastday.com/mobile/20161127/20161127180635_cfe1385dac31e035b00c5511b0beb9d5_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161127180635395.html?qid=juheshuju","uniquekey":"161127180635395","type":"头条","realtype":"社会"},{"title":"一名工人，为啥能在高官如林的官场中成为广西党委候补委员？","date":"2016-11-28 13:45","author_name":"中新社广州分社\u201c广西头条NEWS\u201d","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128134526_5b1c374ea13eb8215316cfd01cad413b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128134526680.html?qid=juheshuju","uniquekey":"161128134526680","type":"头条","realtype":"国内"},{"title":"去世人托梦真实案例，被害人助警方追凶","date":"2016-11-28 10:54","author_name":"腾讯星座","thumbnail_pic_s":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://08.imgmini.eastday.com/mobile/20161128/20161128105435_c2a71e6d60b239dd0ef9b4e70a9a35d0_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128105435876.html?qid=juheshuju","uniquekey":"161128105435876","type":"头条","realtype":"星座"},{"title":"金晨被问换角事件陈赫解围：这是搞事情啊","date":"2016-11-28 17:30","author_name":"新浪娱乐","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161128/20161128173034_20ecf93b6dfd21b83cba060e17169281_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128173034914.html?qid=juheshuju","uniquekey":"161128173034914","type":"头条","realtype":"娱乐"},{"title":"陈冲和女儿十指紧扣 母女俩肤色\u201c黑白分明\u201d","date":"2016-11-28 08:49","author_name":"视觉中国","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128084928_6e98cb934feef5f3b5f6d49a4552560b_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128084928769.html?qid=juheshuju","uniquekey":"161128084928769","type":"头条","realtype":"娱乐"},{"title":"路边的一种野草，可活血通经，还能治疗风湿痹痛、跌打损伤！","date":"2016-11-28 15:28","author_name":"每日养生课堂","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128152803_87c69903f30c3c09413177beaa41dc5a_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128152803809.html?qid=juheshuju","uniquekey":"161128152803809","type":"头条","realtype":"健康"},{"title":"胜利录制《花样旅行》，与师弟姜昇润同框啦","date":"2016-11-28 17:10","author_name":"腾讯娱乐","thumbnail_pic_s":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://00.imgmini.eastday.com/mobile/20161128/20161128171047_1e1a6cc835486d1db0c3dcc612de185d_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128171047467.html?qid=juheshuju","uniquekey":"161128171047467","type":"头条","realtype":"娱乐"},{"title":"南非导演模拟特朗普总统新座驾：飞机装炮管 汽车金光闪闪","date":"2016-11-28 16:57","author_name":"环球网","thumbnail_pic_s":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://09.imgmini.eastday.com/mobile/20161128/20161128165759_2331f25338b4e32f4952ee2d3133c902_2_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128165759842.html?qid=juheshuju","uniquekey":"161128165759842","type":"头条","realtype":"国际"},{"title":"公交司机行驶中猝死 车辆撞树零部件散落一地","date":"2016-11-28 15:53","author_name":"京华网","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128155346_9207d0770a3f4567ce505b7ac0b9a164_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128155346812.html?qid=juheshuju","uniquekey":"161128155346812","type":"头条","realtype":"社会"},{"title":"香港学生侮辱国歌 校长质问：在外时向谁求救？","date":"2016-11-28 03:32","author_name":"环球时报","thumbnail_pic_s":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://03.imgmini.eastday.com/mobile/20161128/20161128033209_4d63563771c3b8cec2f6fd27580af5be_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128033209527.html?qid=juheshuju","uniquekey":"161128033209527","type":"头条","realtype":"国内"},{"title":"马伊琍变复古挂历女郎 穿厚毛衣仍显胸","date":"2016-11-28 15:11","author_name":"新浪娱乐","thumbnail_pic_s":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://01.imgmini.eastday.com/mobile/20161128/20161128151124_7f4135500b60e62e53b71e5d92eb07a3_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128151124441.html?qid=juheshuju","uniquekey":"161128151124441","type":"头条","realtype":"娱乐"},{"title":"渣男张无忌 好姑娘请远离","date":"2016-11-28 10:43","author_name":"东方头条","thumbnail_pic_s":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpm_03200403.jpg","thumbnail_pic_s02":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpl_05500201.jpg","thumbnail_pic_s03":"http://05.imgmini.eastday.com/mobile/20161128/20161128104351_0786f73f71c9706641eecd4e9e0a17f0_1_mwpl_05500201.jpg","url":"http://mini.eastday.com/mobile/161128104351219.html?qid=juheshuju","uniquekey":"161128104351219","type":"头条","realtype":"娱乐"},{"title":"贝壳上抠出70亿元怎么回事 图文揭秘中国大舜人的百年纽扣故事","date":"2016-11-27 15:30","author_name":"荆州新闻网","thumbnail_pic_s":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://04.imgmini.eastday.com/mobile/20161127/20161127153030_36857e25ae1ee3e27e2c2c1ad14c2684_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161127153030767.html?qid=juheshuju","uniquekey":"161127153030767","type":"头条","realtype":"社会"},{"title":"为寻真命天女 英国68岁男子准备迎接第9段婚姻","date":"2016-11-28 14:46","author_name":"中青网","thumbnail_pic_s":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpm_03200403.jpeg","thumbnail_pic_s02":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpl_05500201.jpeg","thumbnail_pic_s03":"http://08.imgmini.eastday.com/mobile/20161128/20161128144644_467eb5d449ae13e44d185455e9936177_1_mwpl_05500201.jpeg","url":"http://mini.eastday.com/mobile/161128144644961.html?qid=juheshuju","uniquekey":"161128144644961","type":"头条","realtype":"国际"}]
          */
 
-        private int count;
-        private String description;
-        private int fcount;
-        private String fromname;
-        private String fromurl;
-        private int id;
-        private String img;
-        private String keywords;
-        private int rcount;
-        private long time;
-        private String title;
-        private int topclass;
+        private String stat;
+        private List<DataBean> data;
 
-        public void setCount(int count) {
-            this.count = count;
+        public String getStat() {
+            return stat;
         }
 
-        public void setDescription(String description) {
-            this.description = description;
+        public void setStat(String stat) {
+            this.stat = stat;
         }
 
-        public void setFcount(int fcount) {
-            this.fcount = fcount;
+        public List<DataBean> getData() {
+            return data;
         }
 
-        public void setFromname(String fromname) {
-            this.fromname = fromname;
+        public void setData(List<DataBean> data) {
+            this.data = data;
         }
 
-        public void setFromurl(String fromurl) {
-            this.fromurl = fromurl;
-        }
+        public static class DataBean implements Parcelable {
+            /**
+             * title : 小伙被发现上吊身亡，头七托梦给奶奶，真相让人愤怒
+             * date : 2016-11-28 16:46
+             * author_name : 本忠人华哥
+             * thumbnail_pic_s : http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpm_03200403.jpeg
+             * thumbnail_pic_s02 : http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg
+             * thumbnail_pic_s03 : http://05.imgmini.eastday.com/mobile/20161128/20161128164604_7d1ceda88730050bade8d1e2b08ca2fe_1_mwpl_05500201.jpeg
+             * url : http://mini.eastday.com/mobile/161128164604563.html?qid=juheshuju
+             * uniquekey : 161128164604563
+             * type : 头条
+             * realtype : 社会
+             */
 
-        public void setId(int id) {
-            this.id = id;
-        }
+            private String title;
+            private String date;
+            private String author_name;
+            private String thumbnail_pic_s;
+            private String thumbnail_pic_s02;
+            private String thumbnail_pic_s03;
+            private String url;
+            private String uniquekey;
+            private String type;
+            private String realtype;
 
-        public void setImg(String img) {
-            this.img = img;
-        }
+            public String getTitle() {
+                return title;
+            }
 
-        public void setKeywords(String keywords) {
-            this.keywords = keywords;
-        }
+            public void setTitle(String title) {
+                this.title = title;
+            }
 
-        public void setRcount(int rcount) {
-            this.rcount = rcount;
-        }
+            public String getDate() {
+                return date;
+            }
 
-        public void setTime(long time) {
-            this.time = time;
-        }
+            public void setDate(String date) {
+                this.date = date;
+            }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+            public String getAuthor_name() {
+                return author_name;
+            }
 
-        public void setTopclass(int topclass) {
-            this.topclass = topclass;
-        }
+            public void setAuthor_name(String author_name) {
+                this.author_name = author_name;
+            }
 
-        public int getCount() {
-            return count;
-        }
+            public String getThumbnail_pic_s() {
+                return thumbnail_pic_s;
+            }
 
-        public String getDescription() {
-            return description;
-        }
+            public void setThumbnail_pic_s(String thumbnail_pic_s) {
+                this.thumbnail_pic_s = thumbnail_pic_s;
+            }
 
-        public int getFcount() {
-            return fcount;
-        }
+            public String getThumbnail_pic_s02() {
+                return thumbnail_pic_s02;
+            }
 
-        public String getFromname() {
-            return fromname;
-        }
+            public void setThumbnail_pic_s02(String thumbnail_pic_s02) {
+                this.thumbnail_pic_s02 = thumbnail_pic_s02;
+            }
 
-        public String getFromurl() {
-            return fromurl;
-        }
+            public String getThumbnail_pic_s03() {
+                return thumbnail_pic_s03;
+            }
 
-        public int getId() {
-            return id;
-        }
+            public void setThumbnail_pic_s03(String thumbnail_pic_s03) {
+                this.thumbnail_pic_s03 = thumbnail_pic_s03;
+            }
 
-        public String getImg() {
-            return img;
-        }
+            public String getUrl() {
+                return url;
+            }
 
-        public String getKeywords() {
-            return keywords;
-        }
+            public void setUrl(String url) {
+                this.url = url;
+            }
 
-        public int getRcount() {
-            return rcount;
-        }
+            public String getUniquekey() {
+                return uniquekey;
+            }
 
-        public long getTime() {
-            return time;
-        }
+            public void setUniquekey(String uniquekey) {
+                this.uniquekey = uniquekey;
+            }
 
-        public String getTitle() {
-            return title;
-        }
+            public String getType() {
+                return type;
+            }
 
-        public int getTopclass() {
-            return topclass;
+            public void setType(String type) {
+                this.type = type;
+            }
+
+            public String getRealtype() {
+                return realtype;
+            }
+
+            public void setRealtype(String realtype) {
+                this.realtype = realtype;
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.title);
+                dest.writeString(this.date);
+                dest.writeString(this.author_name);
+                dest.writeString(this.thumbnail_pic_s);
+                dest.writeString(this.thumbnail_pic_s02);
+                dest.writeString(this.thumbnail_pic_s03);
+                dest.writeString(this.url);
+                dest.writeString(this.uniquekey);
+                dest.writeString(this.type);
+                dest.writeString(this.realtype);
+            }
+
+            public DataBean() {
+            }
+
+            protected DataBean(Parcel in) {
+                this.title = in.readString();
+                this.date = in.readString();
+                this.author_name = in.readString();
+                this.thumbnail_pic_s = in.readString();
+                this.thumbnail_pic_s02 = in.readString();
+                this.thumbnail_pic_s03 = in.readString();
+                this.url = in.readString();
+                this.uniquekey = in.readString();
+                this.type = in.readString();
+                this.realtype = in.readString();
+            }
+
+            public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+                public DataBean createFromParcel(Parcel source) {
+                    return new DataBean(source);
+                }
+
+                public DataBean[] newArray(int size) {
+                    return new DataBean[size];
+                }
+            };
         }
     }
 }

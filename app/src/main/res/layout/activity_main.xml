@@ -1,108 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.cs.news1.activity.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tl_main"
+    <android.support.design.widget.TabLayout
+        android:background="@color/theambacground"
+        android:id="@+id/tab_main"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:popupTheme="@style/PopupOverlay" />
+        android:layout_height="wrap_content" />
 
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/dl_main"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_main"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tab_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/theambacground"
-                app:tabMode="scrollable" />
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp_main"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
-                android:background="@color/theambacground"
-                android:id="@+id/rl_main_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="55dp">
-
-
-                <RadioGroup
-                    android:id="@+id/rg_main_bottom"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <RadioButton
-
-                        android:id="@+id/rb_main_btn1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:button="@null"
-                        android:drawableTop="@drawable/selector_rb_main_home"
-                        android:gravity="center_horizontal"
-
-                        android:text="android" />
-
-                    <RadioButton
-                        android:id="@+id/rb_main_btn2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:button="@null"
-                        android:gravity="center_horizontal"
-                        android:drawableTop="@drawable/selector_rb_main_servive"
-                        android:text="vs" />
-
-                    <RadioButton
-                        android:id="@+id/rb_main_btn3"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:button="@null"
-                        android:drawableTop="@drawable/selector_rb_main_personal"
-                        android:gravity="center_horizontal"
-                        android:text="iphone" />
-
-                </RadioGroup>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/nv_main"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-
-            app:menu="@menu/menu_drawer">
-
-        </android.support.design.widget.NavigationView>
-    </android.support.v4.widget.DrawerLayout>
-</LinearLayout>
+</RelativeLayout>

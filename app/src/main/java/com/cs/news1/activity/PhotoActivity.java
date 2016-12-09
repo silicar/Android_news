@@ -3,21 +3,22 @@ package com.cs.news1.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.cs.news1.R;
-import com.cs.news1.act_adpter.VpAdapter;
-import com.cs.news1.entry.Photo;
-import com.cs.news1.views.L;
+import com.cs.news1.entry.Photos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,46 +27,44 @@ import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
- * Created by chenshuai on 2016/11/15.
+ * Created by chenshuai on 2016/11/30.
  */
 
 public class PhotoActivity extends Activity {
-    private ViewPager viewPager;
-    private VpAdapter adapter;
-    private List<View> viewList=new ArrayList<>();
-    private List<Photo.ResultsBean> mlist=new ArrayList<>();
-    private List<String > myUrls=new ArrayList<>();
-    private int postion;
+    private ViewPager mVpActPhoto;
+    private List<Photos.ResultsBean> mList = new ArrayList<>();
+    private List<View> mViews = new ArrayList<>();
+    private int pos;
+    private PhotoViewAdapter mAdapter;
+    private TextView mTvActPhotocount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//无状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
         initView();
+
     }
+
     private void initView() {
-        viewPager = (ViewPager) findViewById(R.id.vp_photo);
-      /*  Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        myUrls= (List<String>) bundle.get("myurl");*/
+        mVpActPhoto = (ViewPager) findViewById(R.id.vp_act_photo);
+        mTvActPhotocount = (TextView) findViewById(R.id.tv_act_photocount);
 
-      /*  Intent intent = getIntent();
-    //  List<Photo.ResultsBean> mlist=new ArrayList<>();
-        mlist= (List<Photo.ResultsBean>) intent.getSerializableExtra("myurl");*/
-        //postion= (int) bundle.get("pos");
         Intent intent = getIntent();
-        mlist=intent.getParcelableArrayListExtra("myurl");
-        postion= (int) intent.getExtras().get("pos");
+        // TODO: 2016/11/30   mList= (List<Photos.ResultsBean>) intent.getExtras().get("photoList");这两种写法是一样的
 
-        L.d("TTT",mlist.size()+"");
-        for (int i = 0; i < mlist.size(); i++) {
-            String url = mlist.get(i).getUrl();
-            View view = LayoutInflater.from(this).inflate(R.layout.photoview, null);
-            PhotoView photoView= (PhotoView) view.findViewById(R.id.pv_photo);
-            final ProgressBar progressBar= (ProgressBar) view.findViewById(R.id.progress);
+        mList = intent.getParcelableArrayListExtra("photoList");
+        pos = (int) intent.getExtras().get("photoPos");
+
+        for (int i = 0; i < mList.size(); i++) {
+            String url = mList.get(i).getUrl();
+            View view = LayoutInflater.from(this).inflate(R.layout.item_photoview, null);
+            PhotoView photoView = (PhotoView) view.findViewById(R.id.pv_photo);
+            final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress);
             Glide.with(this)
                     .load(url)
                     .listener(new RequestListener<String, GlideDrawable>() {
@@ -94,11 +93,57 @@ public class PhotoActivity extends Activity {
 
                 }
             });
-            viewList.add(view);
+            mViews.add(view);
+        }
+        mAdapter = new PhotoViewAdapter();
+        mVpActPhoto.setAdapter(mAdapter);
+        mVpActPhoto.setCurrentItem(pos);
+        mTvActPhotocount.setText(pos+1+"/"+mList.size());
+        mVpActPhoto.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mTvActPhotocount.setText(mVpActPhoto.getCurrentItem()+1+"/"+mList.size());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+       // mTvActPhotocount.setText(mVpActPhoto.getCurrentItem()+"/"+mList.size());
+
+
+
+
+    }
+
+    class PhotoViewAdapter extends PagerAdapter {
+        @Override
+        public int getCount() {
+            return mViews.size();
         }
 
-        adapter=new VpAdapter(this,viewList);
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(postion);
+        @Override//加入一个视图
+        public Object instantiateItem(ViewGroup container, final int position) {
+            container.addView(mViews.get(position));
+            return mViews.get(position);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(mViews.get(position));
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
     }
+
 }

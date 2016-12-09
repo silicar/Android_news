@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,99 +14,142 @@ import android.widget.Toast;
 
 import com.cs.news1.R;
 import com.cs.news1.activity.PhotoActivity;
+import com.cs.news1.application.MyApplication;
 import com.cs.news1.base.BaseFragment;
-import com.cs.news1.entry.Photo;
-import com.cs.news1.fragment.fm_adapter.PhotoAdater.PhotoAdapter;
+import com.cs.news1.entry.Photos;
+import com.cs.news1.fragment.photosAdapter.MyPhotos;
+import com.cs.news1.fragment.photosAdapter.PhotosAdapter;
+import com.cs.news1.uri.Uri;
+import com.cs.news1.utils.NetUtils;
 import com.cs.news1.utils.SpacesItemDecoration;
-import com.google.gson.Gson;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by chenshuai on 2016/10/12.
  */
 
 public class TabPhoto extends BaseFragment {
-
-    private RecyclerView mRecyclerView;
-    private PhotoAdapter mPhotoAdapter;
-    private List<Photo.ResultsBean> mlist=new ArrayList<>();
-    private List<String > myUrls=new ArrayList<String>();
-
+    private RecyclerView mRlPhoto;
+    private SwipeRefreshLayout mSrPhoto;
+    private List<Photos.ResultsBean> mList=new ArrayList<>();
+    private PhotosAdapter mAdapter;
+    private int count=40;
+    private int page=1;
+    private boolean refresh=false;
+    private String url;
 
     @Nullable
     @Override
-    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fm_photo, null);
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_photo);
-        //CustomGridLayoutManager customGridLayoutManager=new CustomGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-        StaggeredGridLayoutManager staggeredGridLayoutManager=new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
-        mRecyclerView.addItemDecoration(new SpacesItemDecoration(4));
-        final String url = "http://gank.io/api/data/福利/100/1";
-        OkHttpUtils
-                .get()
-                .url(url)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(getActivity(), "请求失败", Toast.LENGTH_SHORT).show();
-                    }
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.d("TAT", response);
-                        Gson gson = new Gson();
-                        Photo bean = gson.fromJson(response, Photo.class);
-                        mlist.addAll(bean.getResults());
-                        for (int i = 0; i <mlist.size() ; i++) {
-                            myUrls.add(mlist.get(i).getUrl());
-                        }
-                        mPhotoAdapter.notifyDataSetChanged();
-                    }
-                });
-
-
-
-        mPhotoAdapter = new PhotoAdapter(mlist, getActivity());
-        mRecyclerView.setAdapter(mPhotoAdapter);
-//mRecyclerView.setLayoutFrozen(true);//禁止滑动呢
-//mRecyclerView.setNestedScrollingEnabled(false);
-        mPhotoAdapter.setOnItemClickLitener(new PhotoAdapter.OnItemClickLitener() {
-            @Override
-            public void onItemClick(View view, int position) {
-               //Log.d("BBB",myUrls.size()+"");
-             /*   Intent intent=new Intent(getContext(), PhotoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putStringArrayList("myurl", (ArrayList<String>) myUrls);
-                bundle.putInt("pos",position);
-                intent.putExtras(bundle);*/
-             /*   Intent intent=new Intent(getContext(), PhotoActivity.class);
-                Bundle bundle=new Bundle();
-                //List<Photo.ResultsBean> mlist=new ArrayList<>(); mlist的类型
-                bundle.putSerializable("myurl", (Serializable) mlist);
-                intent.putExtras(bundle);
-                startActivity(intent);*/
-                Intent intent=new Intent(getContext(), PhotoActivity.class);
-                Bundle bundle=new Bundle();
-                //List<Photo.ResultsBean> mlist=new ArrayList<>(); mlist的类型
-                bundle.putParcelableArrayList("myurl", (ArrayList<? extends Parcelable>) mlist);
-                bundle.putInt("pos",position);
-                intent.putExtras(bundle);
-
-                startActivity(intent);
-
-            }
-        });
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fm_photo, container, false);
+        initView(view);
+        initDatas(page);
+        initRefresh();
+        initNetWork();
         return view;
+    }
+
+    private void initNetWork() {
+        if (!NetUtils.isConnected(getContext())) {
+            refresh=false;
+            mSrPhoto.setRefreshing(refresh);
+        }
+    }
+
+    private void initRefresh() {
+        if (!mSrPhoto.isRefreshing()) {
+            refresh=true;
+            mSrPhoto.setRefreshing(refresh);
+            mSrPhoto.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    //这里不清空会出现问题
+                    mList.clear();
+                    if (page==11) {
+                        page=1;
+                    }
+                    page++;
+                    initDatas(page);
+
+                }
+            });
+
 
         }
     }
 
+    private void initDatas(int page) {
+        this.page=page;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Uri.PHOTOURI)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(MyApplication.defalutOkHttpClient())
+                .build();
+        MyPhotos myPhotos = retrofit.create(MyPhotos.class);
+        Observable<Photos> observable = myPhotos.getDatas(count, page);
+        observable.subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread())
+               .subscribe(new Subscriber<Photos>() {
+                   @Override
+                   public void onCompleted() {
+                   }
 
+                   @Override
+                   public void onError(Throwable e) {
+                       Toast.makeText(getContext(), "请求数据失败", Toast.LENGTH_SHORT).show();
+                       mSrPhoto.setRefreshing(refresh);
+                   }
+                   @Override
+                   public void onNext(Photos photos) {
+                       mList.addAll(photos.getResults());
+                       mAdapter.notifyDataSetChanged();
+                       refresh=false;
+                       mSrPhoto.setRefreshing(refresh);
+
+                   }
+               });
+
+
+    }
+
+    private void initView(View view) {
+        mSrPhoto = (SwipeRefreshLayout) view.findViewById(R.id.sr_photo);
+        mSrPhoto.setProgressBackgroundColorSchemeResource(android.R.color.white);
+        mSrPhoto.setColorSchemeResources(android.R.color.holo_blue_light,
+                android.R.color.holo_red_light,android.R.color.holo_orange_light,
+                android.R.color.holo_green_light);
+
+        mRlPhoto = (RecyclerView) view.findViewById(R.id.rl_photo);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        mRlPhoto.setLayoutManager(layoutManager);
+        mRlPhoto.addItemDecoration(new SpacesItemDecoration(2));
+        mAdapter=new PhotosAdapter(getContext(),mList);
+        mRlPhoto.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickLitener(new PhotosAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent=new Intent(getContext(), PhotoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("photoList", (ArrayList<? extends Parcelable>) mList);
+                bundle.putInt("photoPos",position);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+       // mRlPhoto.setAdapter();
+
+    }
+}
