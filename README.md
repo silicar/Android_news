@@ -1,4 +1,4 @@
-News，一款新闻阅读App,本app由小帅和图图共同开发，基于 Material Design  + RxJava + Retrofit + Glide，基本涵盖了当前 Android 端开发常用的主流框架，基于此框架可以快速开发一个app。
+News，一款新闻阅读App,本app由小帅和图图共同开发，基于 Material Design  + RxJava + Retrofit + Glide，基本涵盖了当前 Android 端开发常用的主流框架，基于此框架可以快速开发一个app。注:(详细代码写在dev分支)
 目前模块包括：
 
 新闻：头条、科技、财经、NBA等类型
