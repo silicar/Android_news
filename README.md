@@ -10,6 +10,7 @@ News，一款新闻阅读App,本app由小帅和图图共同开发，基于 Mater
 RxJava:包括Rx处理服务器请求、缓存、线程调度的完美封装
 
 用到的开源库有：Glide okhttp retrofit rxjava photoview jiecaovideoplayer
+
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
@@ -23,4 +24,5 @@ RxJava:包括Rx处理服务器请求、缓存、线程调度的完美封装
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'com.github.chrisbanes:PhotoView:1.3.1'
     compile 'fm.jiecao:jiecaovideoplayer:5.4'
+    
 本人会坚持在这个项目上实践最新的技术，也会争取拓展更多的阅读内容，欢迎各位关注！ 注意：本项目还在测试阶段，发现 bug 或有好的建议欢迎issue、email(770456288@qq.com),如果感觉对你有帮助也欢迎点个 star、fork，本项目仅做学习交流使用，请勿用于其他用途.最后需要感谢在项目里帮助过我的几位好友:melen,depper,图图,Aben,Remind,kydiwen.
