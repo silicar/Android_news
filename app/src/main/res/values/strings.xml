@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">news1</string>
+    <string name="app_name">news</string>
     <array name="tab_title">
         <item>要闻</item>
         <item>财经</item>

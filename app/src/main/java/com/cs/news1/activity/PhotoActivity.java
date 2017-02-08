@@ -56,7 +56,6 @@ public class PhotoActivity extends Activity {
 
         Intent intent = getIntent();
         // TODO: 2016/11/30   mList= (List<Photos.ResultsBean>) intent.getExtras().get("photoList");这两种写法是一样的
-
         mList = intent.getParcelableArrayListExtra("photoList");
         pos = (int) intent.getExtras().get("photoPos");
 

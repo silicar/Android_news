@@ -10,6 +10,8 @@ public class Uri {
     public static String JOKESURI="http://japi.juhe.cn/";
     //http://gank.io/api/data/福利/10/1
     public static String PHOTOURI="http://gank.io/";
+    //http://www.mocky.io/v2/58997c7c0f000085021f4ae1
+    public static String VIDEOURI="http://www.mocky.io/";
 
 
 

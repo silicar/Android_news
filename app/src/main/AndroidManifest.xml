@@ -19,7 +19,9 @@
       <meta-data
           android:name="com.cs.news1.utils.GlideConfiguration"
           android:value="GlideModule"/>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

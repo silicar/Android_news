@@ -16,6 +16,8 @@ import com.cs.news1.fragment.TabVideo;
 import java.util.ArrayList;
 import java.util.List;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tab_main;
@@ -59,5 +61,17 @@ public class MainActivity extends AppCompatActivity {
         //如果是滑动操作的话没事，但是使用标签点击的时候就不行了。
 
 
+    }
+    @Override
+    public void onBackPressed() {
+        if (JCVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
 }
